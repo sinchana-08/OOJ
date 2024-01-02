@@ -1,0 +1,74 @@
+import java.util.Scanner;
+
+class InputScanner {
+    Scanner s;
+
+    InputScanner() {
+        s = new Scanner(System.in);
+    }
+}
+
+abstract class Shape extends InputScanner {
+    double a;
+    double b;
+
+    abstract void getInput();
+    abstract void displayArea();
+}
+
+class Rectangle extends Shape {
+
+    void getInput() {
+        System.out.println("Enter length and width of Rectangle:");
+        a = s.nextDouble();
+        b = s.nextDouble();
+    }
+
+
+    void displayArea() {
+        System.out.println("Area of Rectangle: " + (a * b));
+    }
+}
+
+class Triangle extends Shape {
+    
+    void getInput() {
+        System.out.println("Enter base and height of Triangle:");
+        a = s.nextDouble();
+        b = s.nextDouble();
+    }
+
+
+    void displayArea() {
+        System.out.println("Area of Triangle: " + (0.5 * a * b));
+    }
+}
+
+class Circle extends Shape {
+
+    void getInput() {
+        System.out.println("Enter radius of Circle:");
+        a = s.nextDouble();
+    }
+
+
+    void displayArea() {
+        System.out.println("Area of Circle: " + (Math.PI * a * a));
+    }
+}
+
+public class ShapeMain {
+    public static void main(String[] args) {
+        Rectangle rectangle = new Rectangle();
+        rectangle.getInput();
+        rectangle.displayArea();
+
+        Triangle triangle = new Triangle();
+        triangle.getInput();
+        triangle.displayArea();
+
+        Circle circle = new Circle();
+        circle.getInput();
+        circle.displayArea();
+    }
+}
