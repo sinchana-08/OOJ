@@ -1,0 +1,119 @@
+import java.util.Scanner;
+
+class Account {
+    String customerName;
+    int accountNumber;
+    String accountType;
+    double balance;
+
+    public Account(String customerName, int accountNumber, String accountType) {
+        this.customerName = customerName;
+        this.accountNumber = accountNumber;
+        this.accountType = accountType;
+        this.balance = 0;
+    }
+
+    public void deposit(double amount) {
+        balance += amount;
+        System.out.println("Deposit successful. Updated balance: " + balance);
+    }
+
+    public void displayBalance() {
+        System.out.println("Account Balance: " + balance);
+    }
+}
+
+class CurAcct extends Account {
+    double minBalance;
+    double serviceCharge;
+
+    public CurAcct(String customerName, int accountNumber) {
+        super(customerName, accountNumber, "Current");
+        this.minBalance = 1000; 
+        this.serviceCharge = 50;
+    }
+
+    public void deposit(double amount) {
+        super.deposit(amount);
+        checkMinBalance();
+    }
+    public void displayBalance() {
+        super.displayBalance();
+        checkMinBalance();
+    }
+
+    private void checkMinBalance() {
+        if (balance < minBalance) {
+            balance -= serviceCharge;
+            System.out.println("Service charge applied. Updated balance: " + balance);
+        }
+    }
+}
+
+class SavAcct extends Account {
+    double interestRate;
+
+    public SavAcct(String customerName, int accountNumber) {
+        super(customerName, accountNumber, "Savings");
+        this.interestRate = 0.05; 
+    }
+
+    public void computeInterest() {
+        double interest = balance * interestRate;
+        balance += interest;
+        System.out.println("Interest computed and deposited. Updated balance: " + balance);
+    }
+    public void displayBalance() {
+        super.displayBalance();
+        computeInterest();
+    }
+
+    public void withdraw(double amount) {
+        if (balance >= amount) {
+            balance -= amount;
+            System.out.println("Withdrawal successful. Updated balance: " + balance);
+        } else {
+            System.out.println("Insufficient funds for withdrawal.");
+        }
+    }
+}
+
+public class Bank {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter your name: ");
+        String currentName = scanner.nextLine();
+        System.out.print("Enter current account number: ");
+        int currentNumber = scanner.nextInt();
+        CurAcct currentAccount = new CurAcct(currentName, currentNumber);
+
+        System.out.print("Enter the amount to deposit into the current account: ");
+        double currentDeposit = scanner.nextDouble();
+        currentAccount.deposit(currentDeposit);
+        currentAccount.displayBalance();
+
+
+        scanner.nextLine(); 
+        System.out.print("\nEnter your name: ");
+        String savingsName = scanner.nextLine();
+        System.out.print("Enter savings account number: ");
+        int savingsNumber = scanner.nextInt();
+        SavAcct savingsAccount = new SavAcct(savingsName, savingsNumber);
+
+        System.out.print("Enter the amount to deposit into the savings account: ");
+        double savingsDeposit = scanner.nextDouble();
+        savingsAccount.deposit(savingsDeposit);
+        savingsAccount.displayBalance();
+
+        System.out.print("Enter the amount to withdraw from the savings account: ");
+        double savingsWithdraw = scanner.nextDouble();
+        savingsAccount.withdraw(savingsWithdraw);
+
+        scanner.close();
+System.out.println("**************************************************************************************************");
+System.out.println("Sinchana R - 1BM22CS278");
+    }
+}
+
+
