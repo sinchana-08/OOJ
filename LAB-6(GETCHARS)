@@ -1,0 +1,11 @@
+public class ExtractSubstring {
+    public static void main(String[] args) {
+        String inputString = "Welcome to Bmsce college";
+        int startIndex = 11; 
+        int endIndex = 16;  
+        char[] extractedChars = new char[endIndex - startIndex];
+        inputString.getChars(startIndex, endIndex, extractedChars, 0);
+        String extractedString = new String(extractedChars);
+        System.out.println(extractedString);
+    }
+}
