@@ -1,0 +1,48 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class GenericStack<T> {
+    private List<T> stack;
+
+    public GenericStack() {
+        this.stack = new ArrayList<>();
+    }
+
+    public void push(T item) {
+        if (stack.size() < 5) {
+            stack.add(item);
+            System.out.println("Pushed: " + item);
+        } else {
+            System.out.println("Stack is full. Cannot push more elements.");
+        }
+    }
+
+    public T pop() {
+        if (!stack.isEmpty()) {
+            T poppedItem = stack.remove(stack.size() - 1);
+            System.out.println("Popped: " + poppedItem);
+            return poppedItem;
+        } else {
+            System.out.println("Stack is empty. Cannot pop elements.");
+            return null;
+        }
+    }
+
+    public static void main(String[] args) {
+        // Create a generic stack for integers
+        GenericStack<Integer> integerStack = new GenericStack<>();
+        integerStack.push(1);
+        integerStack.push(2);
+        integerStack.push(3);
+        integerStack.pop();
+        integerStack.pop();
+
+        // Create a generic stack for doubles
+        GenericStack<Double> doubleStack = new GenericStack<>();
+        doubleStack.push(1.1);
+        doubleStack.push(2.2);
+        doubleStack.push(3.3);
+        doubleStack.pop();
+        doubleStack.pop();
+    }
+}
