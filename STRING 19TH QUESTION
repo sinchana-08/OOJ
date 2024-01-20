@@ -1,0 +1,71 @@
+Question 19
+Write a Java program to create an abstract class Bird with abstract methods fly() and
+makeSound(). Create subclasses Eagle and Hawk that extend the Bird class and implement the
+respective methods to describe how each bird flies and makes a sound.
+
+code
+// Abstract class Bird
+abstract class Bird {
+    // Abstract methods to be implemented by subclasses
+    abstract void fly();
+    abstract void makeSound();
+}
+
+// Concrete subclass Eagle
+class Eagle extends Bird {
+    @Override
+    void fly() {
+        System.out.println("Eagle soars high in the sky.");
+    }
+
+    @Override
+    void makeSound() {
+        System.out.println("Eagle makes a screeching sound.");
+    }
+}
+
+// Concrete subclass Hawk
+class Hawk extends Bird {
+    @Override
+    void fly() {
+        System.out.println("Hawk glides gracefully through the air.");
+    }
+
+    @Override
+    void makeSound() {
+        System.out.println("Hawk emits a sharp cry.");
+    }
+}
+
+// Main class for testing the Bird subclasses
+public class BirdDemo {
+    public static void main(String[] args) {
+        // Create instances of Eagle and Hawk
+        Eagle eagle = new Eagle();
+        Hawk hawk = new Hawk();
+
+        // Test fly() and makeSound() methods for Eagle
+        System.out.println("Eagle's Flight:");
+        eagle.fly();
+        System.out.println("Eagle's Sound:");
+        eagle.makeSound();
+        System.out.println();
+
+        // Test fly() and makeSound() methods for Hawk
+        System.out.println("Hawk's Flight:");
+        hawk.fly();
+        System.out.println("Hawk's Sound:");
+        hawk.makeSound();
+    }
+}
+
+output
+Eagle's Flight:
+Eagle soars high in the sky.
+Eagle's Sound:
+Eagle makes a screeching sound.
+
+Hawk's Flight:
+Hawk glides gracefully through the air.
+Hawk's Sound:
+Hawk emits a sharp cry.
