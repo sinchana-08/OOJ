@@ -1,0 +1,73 @@
+Questions 11-16
+11. Write a java program to perform sorting for alphabets using compareto()
+“van”, “watch”,”ball”, “cat”,”xmas”,”yatch”,” zee”,”
+apple”,”ice”,”jug”,”kite”,”lift”,”man”,”net”,”orange”,”dog”,”ent”,”free”,”gun”,”hen”,”parrot”,”q
+ueen”,”ring”,”star”,”tree”,”umbrella”
+12. Write a Java program to perform sorting of numbers from 10 to 1 using compareto()
+13. Write a Java program using substring() , indexof(), + , for replacing “was” to “is”
+“Thwas was a test. Thwas was, too.”
+14. Write a java program to demonstrate concat() for s1=”hello” and s2=”world”
+15. Write a java program to demonstrate replace(). Replace “College” with “Commege”
+16. Write a java program to demonstrate trim() for “ Hello Friends “
+
+code
+import java.util.Arrays;
+
+public class StringManipulationDemo {
+    public static void main(String[] args) {
+        // 11. Sorting strings using compareTo()
+        String[] words = {"van", "watch", "ball", "cat", "xmas", "yatch", "zee", "apple", "ice", "jug", "kite",
+                          "lift", "man", "net", "orange", "dog", "ent", "free", "gun", "hen", "parrot",
+                          "queen", "ring", "star", "tree", "umbrella"};
+
+        Arrays.sort(words);
+
+        System.out.println("Sorted Words: " + Arrays.toString(words));
+
+        // 12. Sorting numbers from 10 to 1 using compareTo()
+        Integer[] numbers = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+        Arrays.sort(numbers);
+
+        System.out.println("Sorted Numbers: " + Arrays.toString(numbers));
+
+        // 13. Using substring(), indexOf(), and replace()
+        String originalString = "Thwas was a test. Thwas was, too.";
+        int indexOfWas = originalString.indexOf("was");
+        String modifiedString = originalString.substring(0, indexOfWas) + "is" + originalString.substring(indexOfWas + 3);
+
+        System.out.println("Original String: " + originalString);
+        System.out.println("Modified String: " + modifiedString);
+
+        // 14. Using concat()
+        String s1 = "hello";
+        String s2 = "world";
+        String concatenatedString = s1.concat(s2);
+
+        System.out.println("Concatenated String: " + concatenatedString);
+
+        // 15. Using replace()
+        String stringWithCollege = "Welcome to Bmsce College";
+        String modifiedStringWithCommege = stringWithCollege.replace("College", "Commege");
+
+        System.out.println("Original String: " + stringWithCollege);
+        System.out.println("Modified String: " + modifiedStringWithCommege);
+
+        // 16. Using trim()
+        String stringWithSpaces = " Hello Friends ";
+        String trimmedString = stringWithSpaces.trim();
+
+        System.out.println("Original String: '" + stringWithSpaces + "'");
+        System.out.println("Trimmed String: '" + trimmedString + "'");
+    }
+}
+
+Output
+Sorted Words: [apple, ball, cat, dog, ent, free, gun, hen, ice, jug, kite, lift, man, net, orange, parrot, queen, ring, star, tree, umbrella, van, watch, xmas, yatch, zee]
+Sorted Numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+Original String: Thwas was a test. Thwas was, too.
+Modified String: This was a test. Thwas was, too.
+Concatenated String: helloworld
+Original String: Welcome to Bmsce College
+Modified String: Welcome to Bmsce Commege
+Original String: ' Hello Friends '
+Trimmed String: 'Hello Friends'
