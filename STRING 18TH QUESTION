@@ -1,0 +1,75 @@
+Question 18
+18. Demonstrate string buffer functions like Setlength(), Charat(), setcharat() , getchars()
+,append() ,Insert(), reverse(),delete(),deletecharat(), Replace(),substring() with simple java
+programs.
+
+code
+public class StringBufferDemo {
+    public static void main(String[] args) {
+        // 18. Demonstrate StringBuffer functions
+
+        // Create a StringBuffer
+        StringBuffer stringBuffer = new StringBuffer("Hello, World!");
+
+        // SetLength()
+        System.out.println("Original StringBuffer: " + stringBuffer);
+        stringBuffer.setLength(5);
+        System.out.println("After setLength(5): " + stringBuffer);
+
+        // CharAt()
+        char charAtIndex = stringBuffer.charAt(2);
+        System.out.println("Char at index 2: " + charAtIndex);
+
+        // SetCharAt()
+        stringBuffer.setCharAt(2, 'X');
+        System.out.println("After setCharAt(2, 'X'): " + stringBuffer);
+
+        // GetChars()
+        char[] charArray = new char[5];
+        stringBuffer.getChars(0, 5, charArray, 0);
+        System.out.println("Characters from 0 to 5: " + new String(charArray));
+
+        // Append()
+        stringBuffer.append(" GPT-3.5");
+        System.out.println("After append: " + stringBuffer);
+
+        // Insert()
+        stringBuffer.insert(7, " Java ");
+        System.out.println("After insert at index 7: " + stringBuffer);
+
+        // Reverse()
+        stringBuffer.reverse();
+        System.out.println("After reverse: " + stringBuffer);
+
+        // Delete()
+        stringBuffer.delete(2, 6);
+        System.out.println("After delete from 2 to 6: " + stringBuffer);
+
+        // DeleteCharAt()
+        stringBuffer.deleteCharAt(4);
+        System.out.println("After deleteCharAt(4): " + stringBuffer);
+
+        // Replace()
+        stringBuffer.replace(1, 4, "i");
+        System.out.println("After replace from 1 to 4 with 'i': " + stringBuffer);
+
+        // Substring()
+        String substring = stringBuffer.substring(5, 10);
+        System.out.println("Substring from 5 to 10: " + substring);
+    }
+}
+
+
+output
+Original StringBuffer: Hello, World!
+After setLength(5): Hello
+Char at index 2: l
+After setCharAt(2, 'X'): HeXlo
+Characters from 0 to 5: HeXlo
+After append: HeXlo GPT-3.5
+After insert at index 7: HeXlo G Java PT-3.5
+After reverse: 5.3-TP avaJ G olXeH
+After delete from 2 to 6: 5. avaJ G olXeH
+After deleteCharAt(4): 5. aaJ G olXeH
+After replace from 1 to 4 with 'i': 5iaJ G olXeH
+Substring from 5 to 10: G olX
