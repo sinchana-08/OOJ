@@ -1,0 +1,57 @@
+Question 1-5
+1.Demonstrate various string constructor with proper java programs.
+2.Demostrate string length, string literal, string concat
+3.Demostrate tostring()
+4. Using getchars() , extract Bmsce from “ Welcome to Bmsce college”
+5.Demostrate getbytes(),tocharArray() with proper java programs
+
+code
+public class StringDemo {
+    public static void main(String[] args) {
+        // 1. Various String Constructors
+        String constructor1 = new String();  // Empty constructor
+        String constructor2 = new String("Hello");  // Constructor with string literal
+        char[] charArray = {'W', 'o', 'r', 'l', 'd'};
+        String constructor3 = new String(charArray);  // Constructor with char array
+        String constructor4 = new String(charArray, 1, 3);  // Constructor with char array, offset, and length
+        byte[] byteArray = {65, 66, 67, 68};  // ASCII values
+        String constructor5 = new String(byteArray);  // Constructor with byte array
+
+        // 2. String Length, Literal, Concatenation
+        String demoString = "Hello, ";
+        System.out.println("String Length: " + demoString.length());  // String length
+        System.out.println("String Literal: " + demoString);  // String literal
+        String concatenatedString = demoString.concat("World!");  // String concatenation
+        System.out.println("Concatenated String: " + concatenatedString);
+
+        // 3. toString() - Demonstrated implicitly in the print statements
+
+        // 4. Using getChars()
+        char[] targetCharArray = new char[4];
+        concatenatedString.getChars(7, 11, targetCharArray, 0);
+        System.out.print("Extracted String using getChars(): ");
+        System.out.println(targetCharArray);
+
+        // 5. getBytes() and toCharArray()
+        byte[] byteArrayFromString = concatenatedString.getBytes();
+        System.out.print("String to Bytes: ");
+        for (byte b : byteArrayFromString) {
+            System.out.print(b + " ");
+        }
+        System.out.println();
+
+        char[] charArrayFromString = concatenatedString.toCharArray();
+        System.out.print("String to CharArray: ");
+        for (char c : charArrayFromString) {
+            System.out.print(c + " ");
+        }
+        System.out.println();
+    }
+}
+
+output
+String Length: 7
+String Literal: Hello, Concatenated String: Hello, World!
+Extracted String using getChars(): Worl
+String to Bytes: 72 101 108 108 111 44 32 87 111 114 108 100 33 
+String to CharArray: H e l l o ,   W o r l d ! 
