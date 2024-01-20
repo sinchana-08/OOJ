@@ -1,0 +1,68 @@
+Questions 6-10
+6.Check the following output and write the java programs using string function
+Bmsce equals Bmsce -&gt; true
+Bmsce equals College -&gt; false
+Bmsce equals BMSCE -&gt; false
+Bmsce equalsIgnoreCase BMSCE -&gt; true
+7. Using regionmatches() find the substring “Bmsce college “ from the string “Welcome to
+Bmsce College of Engineering” , if matches display substring is matched otherwise display not
+matched
+8. Demonstrate startwith() to give output true and false.
+9. Demonstrate endswith() to give output true and false.
+
+10. Demostrate a java program to show the output for equals() versus ==
+
+code
+public class StringFunctionsDemo {
+    public static void main(String[] args) {
+        // 6. Using equals(), equalsIgnoreCase()
+        String str1 = "Bmsce";
+        String str2 = "College";
+        String str3 = "BMSCE";
+
+        System.out.println(str1 + " equals " + str1 + " -> " + str1.equals(str1));
+        System.out.println(str1 + " equals " + str2 + " -> " + str1.equals(str2));
+        System.out.println(str1 + " equals " + str3 + " -> " + str1.equals(str3));
+        System.out.println(str1 + " equalsIgnoreCase " + str3 + " -> " + str1.equalsIgnoreCase(str3));
+
+        // 7. Using regionMatches()
+        String mainString = "Welcome to Bmsce College of Engineering";
+        String substringToMatch = "Bmsce college";
+
+        boolean isMatched = mainString.regionMatches(true, 11, substringToMatch, 0, 13);
+        System.out.println("Using regionMatches(): Substring is " + (isMatched ? "matched" : "not matched"));
+
+        // 8. Using startsWith()
+        String startString = "Hello, World!";
+        System.out.println("startsWith 'Hello': " + startString.startsWith("Hello"));  // true
+        System.out.println("startsWith 'World': " + startString.startsWith("World"));  // false
+
+        // 9. Using endsWith()
+        String endString = "Hello, World!";
+        System.out.println("endsWith 'World!': " + endString.endsWith("World!"));  // true
+        System.out.println("endsWith 'Hello': " + endString.endsWith("Hello"));  // false
+
+        // 10. Using equals() versus ==
+        String strA = "Java";
+        String strB = new String("Java");
+        String strC = "Java";
+
+        System.out.println("Using equals(): " + strA.equals(strB));  // true
+        System.out.println("Using ==: " + (strA == strB));  // false
+        System.out.println("Using == (reference to the same string pool): " + (strA == strC));  // true
+    }
+}
+
+Output
+Bmsce equals Bmsce -> true
+Bmsce equals College -> false
+Bmsce equals BMSCE -> false
+Bmsce equalsIgnoreCase BMSCE -> true
+Using regionMatches(): Substring is matched
+startsWith 'Hello': true
+startsWith 'World': false
+endsWith 'World!': true
+endsWith 'Hello': false
+Using equals(): true
+Using ==: false
+Using == (reference to the same string pool): true
