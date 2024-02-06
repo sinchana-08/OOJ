@@ -1,0 +1,30 @@
+class DisplayThread extends Thread {
+    private String message;
+    private int delay;
+
+    public DisplayThread(String message, int delay) {
+        this.message = message;
+        this.delay = delay;
+    }
+
+    public void run() {
+        try {
+            while (true) {
+                System.out.println(message);
+                Thread.sleep(delay * 1000);
+            }
+        } catch (InterruptedException e) {
+            System.out.println("Thread interrupted.");
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        DisplayThread thread1 = new DisplayThread("BMS College of Engineering", 10);
+        DisplayThread thread2 = new DisplayThread("CSE", 2);
+
+        thread1.start();
+        thread2.start();
+    }
+}
